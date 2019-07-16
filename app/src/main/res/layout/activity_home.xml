@@ -24,7 +24,24 @@
             android:layout_height="wrap_content"
             android:text=""
             android:textColor="#FFFF"/>
-
     </LinearLayout>
+    <ScrollView
+        android:id="@+id/scrollArea"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#3C3633"
+        android:layout_below="@id/bagianAtas">
+    </ScrollView>
+    <Button
+        android:id="@+id/buttonLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:textStyle="bold|italic"
+        android:textColor="@color/colorPrimaryDark"
+        android:background="@drawable/custom_button_2"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        />
 
 </RelativeLayout>

@@ -6,10 +6,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.trieka.latihanandroid.Menu.CameraActivity;
 import com.trieka.latihanandroid.utility.Constanta;
 import com.trieka.latihanandroid.utility.SessionManager;
 
@@ -18,6 +20,7 @@ public class HomeActivity extends AppCompatActivity {
     private TextView labelUsername;
 
     private Button buttonLogout;
+    private CardView cardCamera, cardGalery;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +47,20 @@ public class HomeActivity extends AppCompatActivity {
                 logoutConfirmation();
             }
         });
+        // CAMERA ACCSESS
+        cardCamera = (CardView) findViewById(R.id.cardCamera);
+        cardCamera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // pindah ke activity camera
+                pindahKeActivityCamera();
+            }
+        });
+    }
+    // CALL CAMERA_ACTIVITY
+    private void pindahKeActivityCamera(){
+        Intent intent = new Intent(context, CameraActivity.class);
+        startActivity(intent);
     }
     // LOGOUT CONFIRMATION
     private void logoutConfirmation(){

@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.trieka.latihanandroid.Menu.CameraActivity;
+import com.trieka.latihanandroid.Menu.GaleryActivity;
 import com.trieka.latihanandroid.utility.Constanta;
 import com.trieka.latihanandroid.utility.SessionManager;
 
@@ -56,6 +57,19 @@ public class HomeActivity extends AppCompatActivity {
                 pindahKeActivityCamera();
             }
         });
+        //CARD GALERY
+        cardGalery = (CardView) findViewById(R.id.cardGalery);
+        cardGalery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pindahKeActivityGalery();
+            }
+        });
+    }
+    // CALL GALERY_ACTIVITY
+    private void pindahKeActivityGalery(){
+        Intent initen = new Intent(context, GaleryActivity.class);
+        startActivity(initen);
     }
     // CALL CAMERA_ACTIVITY
     private void pindahKeActivityCamera(){

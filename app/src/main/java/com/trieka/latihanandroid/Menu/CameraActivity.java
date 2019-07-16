@@ -26,8 +26,8 @@ public class CameraActivity extends AppCompatActivity {
     private Button buttonCamera;
     private ImageView previewPhoto;
 
-    private int ID_PEMANGGIL = 1;// UNIQUE NUMBER
-    private int ID_PERMISSION_CAMERA = 11;// UNIQUE NUMBER
+    private int ID_PEMANGGIL = 10;// UNIQUE NUMBER
+    private int ID_PERMISSION_CAMERA = 101;// UNIQUE NUMBER
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

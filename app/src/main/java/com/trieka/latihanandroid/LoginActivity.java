@@ -11,13 +11,14 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.trieka.latihanandroid.utility.Constanta;
+import com.trieka.latihanandroid.utility.SessionManager;
 
 public class LoginActivity extends AppCompatActivity {
 
     // DECLARE VARIABLE
     private Context context = this;
-    private int counter_back = 1;
 
+    private int counter_back = 1;
     private EditText inputUsername, inputPassword;
     private CheckBox checkBoxRemember;
     private Button buttonLogin;
@@ -42,6 +43,20 @@ public class LoginActivity extends AppCompatActivity {
                 validasiInput();
             }
         });
+        // CALL CHECK REMEMBER FUNCTION
+        checkRemamber();
+    }
+    // CHECK REMEMBER
+    private void checkRemamber(){
+        if (SessionManager.cekRemember(context)){
+            // checkBox di click
+            inputUsername.setText(SessionManager.getUserName(context));
+            inputPassword.setText(SessionManager.getPassword(context));
+
+            checkBoxRemember.setChecked(true);
+        }else {
+            // none
+        }
     }
     // VALIDASI INPUT
     private void validasiInput() {
@@ -54,17 +69,30 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(context, "Password masih kosong!", Toast.LENGTH_SHORT).show();
         } else {
             //validasi sukses
-//                boolean remember = checkBoxRemember.isChecked();
+                boolean remember = checkBoxRemember.isChecked();
 //
-//                // simpan data login
-//                SessionManager.simpanDataLogin(context, valueUsername, valuePassword, remember);
+//                // SAVE LOGIN DATA
+                SessionManager.simpanDataLogin(context, valueUsername, valuePassword, remember);
 
             Intent pindah = new Intent(context, HomeActivity.class);
             pindah.putExtra(Constanta.ID_EXTRA_USERNAME, valueUsername);
             pindah.putExtra(Constanta.ID_EXTRA_PASSWORD, valuePassword);
 
             startActivity(pindah);
+            finish();
+        }
+    }
+    @Override
+    public void onBackPressed() {
+//        super.onBackPressed();
 
+        //logic counter
+        if(counter_back < 2){
+            Toast.makeText(context,
+                    "Tekan back 1x lagi untuk keluar!", Toast.LENGTH_SHORT).show();
+            counter_back++;
+        }
+        else if(counter_back == 2){
             finish();
         }
     }

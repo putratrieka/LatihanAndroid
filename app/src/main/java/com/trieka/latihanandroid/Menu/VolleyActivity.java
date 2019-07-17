@@ -46,8 +46,7 @@ public class VolleyActivity extends AppCompatActivity {
                 .loadingAnimationAndText(context,"Loading.....");
         loading.show();
 
-        String urlImage = "https://premierleague-static-files.s3.amazonaws.com/" +
-                "premierleague/photo/2018/10/04/22ec577a-504c-4794-bc2c-ead39e5d416d/epl-Logo-v3.jpg";
+        String urlImage = "https://statics.sportskeeda.com/editor/2018/12/6312a-15462039229720-500.jpg";
 
         ImageRequest imageRequest = new ImageRequest(urlImage,
                 // RESPONSE SUKSES

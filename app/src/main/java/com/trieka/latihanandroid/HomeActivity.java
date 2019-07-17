@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.trieka.latihanandroid.Menu.CameraActivity;
 import com.trieka.latihanandroid.Menu.GaleryActivity;
+import com.trieka.latihanandroid.Menu.PicassoActivity;
 import com.trieka.latihanandroid.Menu.VolleyActivity;
 import com.trieka.latihanandroid.utility.Constanta;
 import com.trieka.latihanandroid.utility.SessionManager;
@@ -22,7 +23,7 @@ public class HomeActivity extends AppCompatActivity {
     private TextView labelUsername;
 
     private Button buttonLogout;
-    private CardView cardCamera, cardGalery, cardVolley;
+    private CardView cardCamera, cardGalery, cardVolley, cardPicasso;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +67,6 @@ public class HomeActivity extends AppCompatActivity {
                 pindahKeActivityGalery();
             }
         });
-
         // CARD VOLLEY
         cardVolley = (CardView) findViewById(R.id.cardVolley);
         cardVolley.setOnClickListener(new View.OnClickListener() {
@@ -75,7 +75,21 @@ public class HomeActivity extends AppCompatActivity {
                 pindahKeActivityVolley();
             }
         });
+        // CARD PICASSO
+        cardPicasso = (CardView) findViewById(R.id.cardPicasso);
+        cardPicasso.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pindahKeActivityPicasso();
+            }
+        }));
     }
+    // CALL PICASSO_ACTIVITY
+    private void pindahKeActivityPicasso(){
+        Intent intent = new Intent(context, PicassoActivity.class);
+        startActivity(intent);
+    }
+
     // CALL COLLEY_ACTIVITY
     private void pindahKeActivityVolley(){
         Intent intent = new Intent(context, VolleyActivity.class);

@@ -15,6 +15,7 @@ import com.trieka.latihanandroid.Menu.CameraActivity;
 import com.trieka.latihanandroid.Menu.GaleryActivity;
 import com.trieka.latihanandroid.Menu.GetStringActivity;
 import com.trieka.latihanandroid.Menu.GlideActivity;
+import com.trieka.latihanandroid.Menu.ParsingJSONActivity;
 import com.trieka.latihanandroid.Menu.PicassoActivity;
 import com.trieka.latihanandroid.Menu.VolleyActivity;
 import com.trieka.latihanandroid.utility.Constanta;
@@ -26,7 +27,8 @@ public class HomeActivity extends AppCompatActivity {
 
     private Button buttonLogout;
     private CardView cardCamera, cardGalery,
-            cardVolley, cardPicasso, cardGlide, cardGetString;
+            cardVolley, cardPicasso, cardGlide,
+            cardGetString, cardJSON;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,7 +104,21 @@ public class HomeActivity extends AppCompatActivity {
                 pindahKeCardGetString();
             }
         });
+        // CARD JSON
+        cardJSON = (CardView) findViewById((R.id.cardJSON));
+        cardJSON.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pindahKeAktivityParsingJSON();
+            }
+        });
     }
+    // CALL PARSING_JSON_ACTIVITY
+    private void pindahKeAktivityParsingJSON(){
+        Intent intent = new Intent(context, ParsingJSONActivity.class);
+        startActivity(intent);
+    }
+
     //CALL GET_STRING_ACTIVITY
     private void pindahKeCardGetString(){
         Intent intent = new Intent(context, GetStringActivity.class);

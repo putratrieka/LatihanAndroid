@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Menu.PicassoActivity"></activity>
+        <activity android:name=".Menu.GlideActivity"></activity>
+        <activity android:name=".Menu.PicassoActivity" />
         <activity android:name=".Menu.VolleyActivity" />
         <activity android:name=".Menu.GaleryActivity" />
         <activity android:name=".Menu.CameraActivity" />

@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.trieka.latihanandroid.Menu.CameraActivity;
 import com.trieka.latihanandroid.Menu.GaleryActivity;
+import com.trieka.latihanandroid.Menu.GlideActivity;
 import com.trieka.latihanandroid.Menu.PicassoActivity;
 import com.trieka.latihanandroid.Menu.VolleyActivity;
 import com.trieka.latihanandroid.utility.Constanta;
@@ -23,7 +24,8 @@ public class HomeActivity extends AppCompatActivity {
     private TextView labelUsername;
 
     private Button buttonLogout;
-    private CardView cardCamera, cardGalery, cardVolley, cardPicasso;
+    private CardView cardCamera, cardGalery,
+            cardVolley, cardPicasso, cardGlide;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +85,19 @@ public class HomeActivity extends AppCompatActivity {
                 pindahKeActivityPicasso();
             }
         }));
+        // CARD CARD GLIDE
+        cardGlide = (CardView) findViewById(R.id.cardGlide);
+        cardGlide.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pindahKeActivityGlide();
+            }
+        }));
+    }
+    // CALL GLIDE_ACTIVITY
+    private void pindahKeActivityGlide(){
+        Intent intent = new Intent(context, GlideActivity.class);
+        startActivity(intent);
     }
     // CALL PICASSO_ACTIVITY
     private void pindahKeActivityPicasso(){

@@ -119,7 +119,9 @@
                         android:layout_gravity="center_horizontal|center_vertical"
                         android:text="GLIDE" />
                 </android.support.v7.widget.CardView>
+
                 <android.support.v7.widget.CardView
+                    android:id="@+id/cardGetString"
                     android:layout_width="0dp"
                     android:layout_height="100dp"
                     android:layout_weight="1"
@@ -130,7 +132,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal|center_vertical"
-                        android:text="Retofit" />
+                        android:text="Get String" />
                 </android.support.v7.widget.CardView>
 
             </LinearLayout>

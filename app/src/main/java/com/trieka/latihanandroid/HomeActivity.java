@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.trieka.latihanandroid.Menu.CameraActivity;
 import com.trieka.latihanandroid.Menu.GaleryActivity;
+import com.trieka.latihanandroid.Menu.GetStringActivity;
 import com.trieka.latihanandroid.Menu.GlideActivity;
 import com.trieka.latihanandroid.Menu.PicassoActivity;
 import com.trieka.latihanandroid.Menu.VolleyActivity;
@@ -25,7 +26,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private Button buttonLogout;
     private CardView cardCamera, cardGalery,
-            cardVolley, cardPicasso, cardGlide;
+            cardVolley, cardPicasso, cardGlide, cardGetString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,7 +94,21 @@ public class HomeActivity extends AppCompatActivity {
                 pindahKeActivityGlide();
             }
         }));
+        // CARD GET_STRING
+        cardGetString = (CardView) findViewById(R.id.cardGetString);
+        cardGetString.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pindahKeCardGetString();
+            }
+        });
     }
+    //CALL GET_STRING_ACTIVITY
+    private void pindahKeCardGetString(){
+        Intent intent = new Intent(context, GetStringActivity.class);
+        startActivity(intent);
+    }
+
     // CALL GLIDE_ACTIVITY
     private void pindahKeActivityGlide(){
         Intent intent = new Intent(context, GlideActivity.class);

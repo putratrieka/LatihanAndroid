@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.trieka.latihanandroid.Menu.CameraActivity;
 import com.trieka.latihanandroid.Menu.GaleryActivity;
+import com.trieka.latihanandroid.Menu.VolleyActivity;
 import com.trieka.latihanandroid.utility.Constanta;
 import com.trieka.latihanandroid.utility.SessionManager;
 
@@ -21,7 +22,7 @@ public class HomeActivity extends AppCompatActivity {
     private TextView labelUsername;
 
     private Button buttonLogout;
-    private CardView cardCamera, cardGalery;
+    private CardView cardCamera, cardGalery, cardVolley;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +66,21 @@ public class HomeActivity extends AppCompatActivity {
                 pindahKeActivityGalery();
             }
         });
+
+        // CARD VOLLEY
+        cardVolley = (CardView) findViewById(R.id.cardVolley);
+        cardVolley.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pindahKeActivityVolley();
+            }
+        });
+    }
+    // CALL COLLEY_ACTIVITY
+    private void pindahKeActivityVolley(){
+        Intent intent = new Intent(context, VolleyActivity.class);
+        startActivity(intent);
+
     }
     // CALL GALERY_ACTIVITY
     private void pindahKeActivityGalery(){

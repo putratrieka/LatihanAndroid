@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.trieka.latihanandroid.Menu.CameraActivity;
 import com.trieka.latihanandroid.Menu.GaleryActivity;
+import com.trieka.latihanandroid.Menu.GetListActivity;
 import com.trieka.latihanandroid.Menu.GetStringActivity;
 import com.trieka.latihanandroid.Menu.GlideActivity;
 import com.trieka.latihanandroid.Menu.ParsingJSONActivity;
@@ -28,7 +29,7 @@ public class HomeActivity extends AppCompatActivity {
     private Button buttonLogout;
     private CardView cardCamera, cardGalery,
             cardVolley, cardPicasso, cardGlide,
-            cardGetString, cardJSON;
+            cardGetString, cardJSON, cardGetList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,7 +113,21 @@ public class HomeActivity extends AppCompatActivity {
                 pindahKeAktivityParsingJSON();
             }
         });
+        // CARD GET_LIST
+        cardGetList = (CardView) findViewById(R.id.cardGetList);
+        cardGetList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pindahKeActivityGetList();
+            }
+        });
     }
+    //
+    private void  pindahKeActivityGetList(){
+        Intent intent = new Intent(context, GetListActivity.class);
+        startActivity(intent);
+    }
+
     // CALL PARSING_JSON_ACTIVITY
     private void pindahKeAktivityParsingJSON(){
         Intent intent = new Intent(context, ParsingJSONActivity.class);

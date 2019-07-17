@@ -1,5 +1,6 @@
 package com.trieka.latihanandroid.Menu;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +15,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.Volley;
 import com.trieka.latihanandroid.R;
+import com.trieka.latihanandroid.utility.LoadingClass;
 
 public class VolleyActivity extends AppCompatActivity {
     private Context context = this;
@@ -39,6 +41,11 @@ public class VolleyActivity extends AppCompatActivity {
     }
     // REQUEST PERMISSION
     private void ambilImageDariWeb(){
+        // LOADING PROGRESS
+        final ProgressDialog loading = LoadingClass
+                .loadingAnimationAndText(context,"Loading.....");
+        loading.show();
+
         String urlImage = "https://premierleague-static-files.s3.amazonaws.com/" +
                 "premierleague/photo/2018/10/04/22ec577a-504c-4794-bc2c-ead39e5d416d/epl-Logo-v3.jpg";
 
@@ -47,6 +54,7 @@ public class VolleyActivity extends AppCompatActivity {
                 new Response.Listener<Bitmap>() {
                     @Override
                     public void onResponse(Bitmap response) {
+                        loading.dismiss();
                         previewImageWeb.setImageBitmap(response);
                     }
                 },
@@ -58,6 +66,7 @@ public class VolleyActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        loading.dismiss();
                         Toast.makeText(context, "Error panggil image : "
                                 + error.getMessage(),Toast.LENGTH_SHORT).show();
                     }

@@ -2,16 +2,21 @@ package com.trieka.latihanandroid.Adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
+import com.trieka.latihanandroid.Menu.DeatailUserActivity;
 import com.trieka.latihanandroid.R;
 import com.trieka.latihanandroid.model.ModelUser;
+import com.trieka.latihanandroid.utility.TemporaryData;
 
 import java.util.List;
 
@@ -41,7 +46,7 @@ public class CustomListUserAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater)
                 context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         ViewHolderListUser holder;
@@ -53,6 +58,7 @@ public class CustomListUserAdapter extends BaseAdapter {
             holder.avatar = (ImageView) convertView.findViewById(R.id.avatar);
             holder.fullname = (TextView) convertView.findViewById(R.id.fullName);
             holder.email = (TextView) convertView.findViewById(R.id.email);
+            holder.listUserArea = (LinearLayout) convertView.findViewById(R.id.listUserArea);
 
 
 
@@ -69,6 +75,26 @@ public class CustomListUserAdapter extends BaseAdapter {
         String valueEmail = modelUsers.get(position).getEmail();
         holder.email.setText(valueEmail);
 
+        if (position %2 == 0){
+            //GENAP
+            holder.listUserArea.setBackgroundColor(Color.CYAN);
+        }else {
+            //GANJIL
+            holder.listUserArea.setBackgroundColor(Color.LTGRAY);
+        }
+        //TAMBAHKAN CLICK LISTENER DI LISTAREA
+        holder.listUserArea.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //AKSI
+                ModelUser model = modelUsers.get(position);
+                TemporaryData.TEMPORARY_MODEL_USER = model;
+
+                Intent intent = new Intent(context, DeatailUserActivity.class);
+                context.startActivity(intent);
+            }
+        });
+
         convertView.setTag(holder);
         return convertView;
     }
@@ -77,6 +103,7 @@ public class CustomListUserAdapter extends BaseAdapter {
         ImageView avatar;
         TextView fullname;
         TextView email;
+        LinearLayout listUserArea;
     }
 
 }
